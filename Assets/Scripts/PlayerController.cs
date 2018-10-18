@@ -20,8 +20,8 @@ public class PlayerController : MonoBehaviour {
 		if(input.magnitude > 0.01) {
 			animator.SetFloat("moveX", input.x);
 			animator.SetFloat("moveY", input.y);
-
-			rigidbody2d.velocity = input * speed * Time.fixedDeltaTime;
 		}
+		
+		rigidbody2d.velocity = input * speed;
 	}
 }

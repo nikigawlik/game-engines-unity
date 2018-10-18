@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-	[SerializeField] private float force = 2f;
+	[SerializeField] private float speed = 2f;
 
 	private Animator animator;
 	private Rigidbody2D rigidbody2d;
@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour {
 			animator.SetFloat("moveX", input.x);
 			animator.SetFloat("moveY", input.y);
 
-			rigidbody2d.AddForce(input * force);
+			rigidbody2d.velocity = input * speed * Time.fixedDeltaTime;
 		}
 	}
 }

@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour {
 	private void FixedUpdate() {
 		Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 		input = input.normalized;
-		int d = (int)(Mathf.Round(Mathf.Atan2(input.y, input.x) / (2f * Mathf.PI)) * 4) % 4;
 
 		if(input.magnitude > 0.01) {
 			animator.SetFloat("moveX", input.x);

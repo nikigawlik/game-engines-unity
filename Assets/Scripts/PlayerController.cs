@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 	[SerializeField] private float speed = 2f;
+	public float speedModifier = 1f;
 
 	private Animator animator;
 	private Rigidbody2D rigidbody2d;
@@ -22,6 +23,17 @@ public class PlayerController : MonoBehaviour {
 			animator.SetFloat("moveY", input.y);
 		}
 		
-		rigidbody2d.velocity = input * speed;
+		rigidbody2d.velocity = input * speed * speedModifier;
+	}
+
+	private void OnTriggerStay2D(Collider2D other) {
+		Swamp swamp = other.GetComponent<Swamp>();
+		if(swamp != null) {
+			speedModifier = swamp.Slowdown;
+		}
+	}
+
+	private void OnTriggerExit2D(Collider2D other) {
+		speedModifier = 1f;
 	}
 }

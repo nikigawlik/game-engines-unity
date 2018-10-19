@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		
 		rigidbody2d.velocity = input * speed * speedModifier;
+		animator.SetFloat("speed", rigidbody2d.velocity.magnitude);
 
 		// shooting
 		if(Input.GetButton("Fire1") && bulletCountdown == 0f) {
@@ -47,6 +48,7 @@ public class PlayerController : MonoBehaviour {
 			bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * bulletSpeed;	
 
 			bulletCountdown = bulletDelay;
+			animator.SetTrigger("fire");
 		}
 		bulletCountdown = Mathf.Max(bulletCountdown - Time.fixedDeltaTime, 0f);
 	}

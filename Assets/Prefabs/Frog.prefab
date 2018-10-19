@@ -110,7 +110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   speedModifier: 1
-  bulletSpeed: 5
+  bulletSpeed: 9
+  bulletDelay: 0.3
   bulletPool: {fileID: 0}
 --- !u!212 &212664567529194450
 SpriteRenderer:

@@ -2719,6 +2719,15 @@ Prefab:
       propertyPath: bulletPool
       value: 
       objectReference: {fileID: 695901017}
+    - target: {fileID: 1488289687006874, guid: 9858fe2752de0734b80af8f4e2b1b8ba, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 58298049703842252, guid: 9858fe2752de0734b80af8f4e2b1b8ba,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9858fe2752de0734b80af8f4e2b1b8ba, type: 2}
   m_IsPrefabAsset: 0
@@ -2853,7 +2862,7 @@ GameObject:
   - component: {fileID: 1599608510}
   - component: {fileID: 1599608509}
   - component: {fileID: 1599608508}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Swamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}

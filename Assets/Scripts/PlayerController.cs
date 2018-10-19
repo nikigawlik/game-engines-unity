@@ -45,7 +45,8 @@ public class PlayerController : MonoBehaviour {
 			GameObject bullet = bulletPool.GetObject();
 			bullet.transform.position = transform.position;
 			bullet.transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2(shootDirection.y, shootDirection.x));
-			bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * bulletSpeed;	
+			bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * bulletSpeed;
+			bullet.GetComponent<Projectile>().shooter = this.gameObject;
 
 			bulletCountdown = bulletDelay;
 			animator.SetTrigger("fire");

@@ -2651,6 +2651,26 @@ TilemapCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+--- !u!1 &46775283 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1488289687006874, guid: 9858fe2752de0734b80af8f4e2b1b8ba,
+    type: 2}
+  m_PrefabInternal: {fileID: 249830627}
+--- !u!114 &46775290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 46775283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20027f8a2717e46dbafd83e6365c00a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max: 5
+  isPlayer: 1
+  isInvincible: 0
+  inivincibleDuration: 5
 --- !u!1001 &249830627
 Prefab:
   m_ObjectHideFlags: 0

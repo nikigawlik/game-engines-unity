@@ -16,12 +16,6 @@ public class Health : MonoBehaviour {
 		isPlayer = gameObject.GetComponent<PlayerController>() != null;
 	}
 
-	void Update () {
-		if (Input.GetKeyDown("l")) {
-			ApplyDamage(2);
-		}
-	}
-
 	public void ApplyDamage (int n) {
 		if (!isInvincible) {
 			current -= n;

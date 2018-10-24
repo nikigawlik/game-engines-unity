@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Health : MonoBehaviour {
 	[SerializeField] private int max = 5;
-	[SerializeField] private bool isPlayer = false;
 	[SerializeField] private bool isInvincible = false;
 	[SerializeField] private float inivincibleDuration = 5f; 
+	private bool isPlayer;
 	private int current;
 	private SpriteRenderer sprite;
 
 	void Start () {
 		current = max;
 		sprite = gameObject.GetComponent<SpriteRenderer>();
+		isPlayer = gameObject.GetComponent<PlayerController>() != null;
 	}
 
 	void Update () {

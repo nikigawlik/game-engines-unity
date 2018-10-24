@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour {
 		// shooting
 		if(Input.GetButton("Fire1") && bulletCountdown == 0f) {
 			GameObject bullet = bulletPool.GetObject();
+			bullet.tag = "Player";
 			bullet.transform.position = transform.position;
 			bullet.transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2(shootDirection.y, shootDirection.x));
 			bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * bulletSpeed;

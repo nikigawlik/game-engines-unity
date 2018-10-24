@@ -15,12 +15,14 @@ public class BulldozerController : MonoBehaviour {
 	private void FixedUpdate() {
 		PlayerController player = GameController.Instance.player;
 		if(player != null) {
-			rb.velocity = (player.transform.position - transform.position).normalized;
+			rb.velocity = (player.transform.position - transform.position).normalized * speed;
 		}
 	}
 
 	private void Update() {
-		anim.SetFloat("lookX", rb.velocity.x);
+		if(rb.velocity.magnitude > 0.1f) {
+			anim.SetFloat("lookX", rb.velocity.x);
+		}
 		anim.SetFloat("speed", rb.velocity.magnitude);
 	}
 }

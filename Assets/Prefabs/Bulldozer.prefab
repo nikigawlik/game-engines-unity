@@ -24,9 +24,11 @@ GameObject:
   - component: {fileID: 50681240787465928}
   - component: {fileID: 58790725168986864}
   - component: {fileID: 114804079166793528}
+  - component: {fileID: 114342451914248474}
+  - component: {fileID: 114386399469285038}
   m_Layer: 0
   m_Name: Bulldozer
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,6 +99,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114342451914248474
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1906166641465564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20027f8a2717e46dbafd83e6365c00a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max: 2
+  isInvincible: 0
+  inivincibleDuration: 5
+--- !u!114 &114386399469285038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1906166641465564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321cf9e6852a24b708598e80e4160850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
 --- !u!114 &114804079166793528
 MonoBehaviour:
   m_ObjectHideFlags: 1

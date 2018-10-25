@@ -23,6 +23,8 @@ public class Health : MonoBehaviour {
 				GameObject.Destroy(gameObject);
 			} else if (isPlayer) {
 				StartCoroutine(MakeInvincible());
+			} else {
+				StartCoroutine(ShowDamage());
 			}
 		}
 	}
@@ -40,5 +42,11 @@ public class Health : MonoBehaviour {
 		isInvincible = false;
 		objColor.a = 1;
 		sprite.color = objColor;
+	}
+
+	private IEnumerator ShowDamage() {
+		sprite.color = new Color(1, 0.5f, 0.5f);
+		yield return new WaitForSeconds(0.15f);
+		sprite.color = new Color(1, 1, 1);
 	}
 }

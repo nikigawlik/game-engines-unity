@@ -3,12 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour {
-	[SerializeField] private int max = 5;
+	public int max = 5;
 	[SerializeField] private bool isInvincible = false;
 	[SerializeField] private float inivincibleDuration = 5f; 
 	private bool isPlayer;
 	private int current;
 	private SpriteRenderer sprite;
+	
+	public delegate void HealthUpdate(int newHealth, int oldHealth);
+	public event HealthUpdate OnHealthUpdated;
+
+	public int Current {
+		get {
+			return current;
+		}
+	}
 
 	void Start () {
 		current = max;
@@ -16,9 +25,15 @@ public class Health : MonoBehaviour {
 		isPlayer = gameObject.GetComponent<PlayerController>() != null;
 	}
 
+	private void SetHealth (int n) {
+		if (OnHealthUpdated != null)
+			OnHealthUpdated(n, current);
+		current = n;
+	}
+
 	public void ApplyDamage (int n) {
 		if (!isInvincible) {
-			current -= n;
+			SetHealth(Mathf.Max(current - n, 0));
 			if (current <= 0) {
 				GameObject.Destroy(gameObject);
 			} else if (isPlayer) {
@@ -30,7 +45,7 @@ public class Health : MonoBehaviour {
 	}
 
 	public void Heal (int n) {
-		current = Mathf.Max(max, current + n);
+		SetHealth(Mathf.Min(max, current + n));
 	}
 
 	private IEnumerator MakeInvincible() {

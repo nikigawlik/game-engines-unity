@@ -29,13 +29,15 @@ public class PlayerController : MonoBehaviour {
 		input = input.normalized;
 
 		if(input.magnitude > 0.01) {
-
 			// get move angle
-            float moveAngle = Mathf.Atan2(input.y, input.x);
-            // round it to 90°
-            float shootAngle = Mathf.Round(moveAngle / (0.5f * Mathf.PI)) * 0.5f * Mathf.PI;
+			float moveAngle = Mathf.Atan2(input.y, input.x);
+			// round it to 90°
+			float shootAngle = Mathf.Round(moveAngle / (0.5f * Mathf.PI)) * 0.5f * Mathf.PI;
 			// Only set shoot direction when we are moving non-diagonally
-			if (Mathf.Abs(Mathf.DeltaAngle(shootAngle, moveAngle)) < 40f * Mathf.Deg2Rad) {
+			if (
+				Mathf.Abs(Mathf.DeltaAngle(shootAngle, moveAngle)) < 40f * Mathf.Deg2Rad &&
+				!Input.GetButton("Fire1")
+			) {
 				shootDirection = new Vector2(Mathf.Cos(shootAngle), Mathf.Sin(shootAngle));
 			}
 			animator.SetFloat("moveX", shootDirection.x);

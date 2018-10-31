@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class ContactDamage : MonoBehaviour {
 	[SerializeField] private int damage = 1;
+	public bool damageOnce = false;
 
-	private void OnCollisionEnter2D(Collision2D other) {
-		Health health = other.gameObject.GetComponent<Health>();
-		if (gameObject.tag != other.gameObject.tag && health) {
-			health.ApplyDamage(damage);
-		}
+	private bool hasDamaged = false;
+
+	private void OnCollisionStay2D(Collision2D other) {
+        ApplyDamage(other.gameObject);
+    }
+
+    private void OnTriggerStay2D(Collider2D other) {
+        ApplyDamage(other.gameObject);
 	}
 
-	private void OnTriggerEnter2D(Collider2D other) {
-		Health health = other.gameObject.GetComponent<Health>();
-		if (gameObject.tag != other.gameObject.tag && health) {
-			health.ApplyDamage(damage);
-		}
-	}
+    private void ApplyDamage(GameObject other) {
+        Health health = other.GetComponent<Health>();
+        if (gameObject.tag != other.tag && health && !(damageOnce && hasDamaged)) {
+            health.ApplyDamage(damage);
+            hasDamaged = true;
+        }
+    }
 }

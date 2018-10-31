@@ -8,6 +8,10 @@ public class ContactDamage : MonoBehaviour {
 
 	private bool hasDamaged = false;
 
+	private void OnEnable() {
+		hasDamaged = false;
+	}
+
 	private void OnCollisionStay2D(Collision2D other) {
         ApplyDamage(other.gameObject);
     }

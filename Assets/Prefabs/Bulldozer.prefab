@@ -111,8 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   max: 2
-  isInvincible: 0
-  inivincibleDuration: 5
+  invincibleDuration: 0
 --- !u!114 &114386399469285038
 MonoBehaviour:
   m_ObjectHideFlags: 1

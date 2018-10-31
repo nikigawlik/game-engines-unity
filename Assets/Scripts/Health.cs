@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour {
 	public int max = 5;
-	[SerializeField] private bool isInvincible = false;
-	[SerializeField] private float inivincibleDuration = 5f; 
+	private bool isInvincible = false;
+	[SerializeField] private float invincibleDuration = 0;
 	private bool isPlayer;
 	private int current;
 	private SpriteRenderer sprite;
@@ -32,13 +32,15 @@ public class Health : MonoBehaviour {
 	}
 
 	public void ApplyDamage (int n) {
-		if (!isInvincible) {
-			SetHealth(Mathf.Max(current - n, 0));
-			if (current <= 0) {
-				GameObject.Destroy(gameObject);
-			} else if (isPlayer) {
-				StartCoroutine(MakeInvincible());
-			} else {
+		if (isInvincible) return;
+		SetHealth(Mathf.Max(current - n, 0));
+		if (current <= 0) {
+			GameObject.Destroy(gameObject);
+		} else {
+			if (invincibleDuration > 0) {
+				StartCoroutine(MakeInvincible(invincibleDuration));
+			}
+			if (!isPlayer) {
 				StartCoroutine(ShowDamage());
 			}
 		}
@@ -48,12 +50,12 @@ public class Health : MonoBehaviour {
 		SetHealth(Mathf.Min(max, current + n));
 	}
 
-	private IEnumerator MakeInvincible() {
+	public IEnumerator MakeInvincible(float duration) {
 		isInvincible = true;
 		Color objColor = sprite.color;
 		objColor.a = 0.3f;
 		sprite.color = objColor;
-		yield return new WaitForSeconds(inivincibleDuration);
+		yield return new WaitForSeconds(duration);
 		isInvincible = false;
 		objColor.a = 1;
 		sprite.color = objColor;

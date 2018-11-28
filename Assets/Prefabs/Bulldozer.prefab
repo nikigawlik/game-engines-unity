@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114804079166793528}
   - component: {fileID: 114342451914248474}
   - component: {fileID: 114386399469285038}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Bulldozer
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1906166641465564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6, y: -5.32, z: 0}
+  m_LocalPosition: {x: 6.1455145, y: 4.033543, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  damageOnce: 0
 --- !u!114 &114804079166793528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,6 +137,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  avoidDistance: 1
+  layersToAvoid:
+  - Walls
 --- !u!212 &212822748351808100
 SpriteRenderer:
   m_ObjectHideFlags: 1

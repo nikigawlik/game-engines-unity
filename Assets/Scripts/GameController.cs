@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 	public PlayerController player;
 
 	[Header("UI")]
 	public GameObject gameOverUI;
+	public Image waveFillImage;
 
 	private static GameController instance;
 	public static GameController Instance {

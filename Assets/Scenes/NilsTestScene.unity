@@ -638,6 +638,11 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114769102344283994, guid: 9858fe2752de0734b80af8f4e2b1b8ba,
+        type: 2}
+      propertyPath: bulletSpawnOffset
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9858fe2752de0734b80af8f4e2b1b8ba, type: 2}
   m_IsPrefabAsset: 0

@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114804079166793528}
   - component: {fileID: 114342451914248474}
   - component: {fileID: 114386399469285038}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Bulldozer
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.57
+  m_Radius: 0.4
 --- !u!95 &95959690871592958
 Animator:
   serializedVersion: 3
@@ -138,6 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   avoidDistance: 1
+  directionChangeThreshold: 0.1
   layersToAvoid:
   - Walls
 --- !u!212 &212822748351808100

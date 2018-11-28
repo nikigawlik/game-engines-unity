@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour {
 	[Header("UI")]
 	public GameObject gameOverUI;
 	public Image waveFillImage;
+	public Text waveCounterText;
 
 	private static GameController instance;
 	public static GameController Instance {

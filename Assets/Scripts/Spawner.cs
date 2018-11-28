@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour {
 	public float gameStartDelay = 5;
 	public float spawnDelay = 10;
 
+	private float waveCounter = 0;
 	private float spawnCountdown;
 
 	[EasyButtons.Button]
@@ -39,6 +40,7 @@ public class Spawner : MonoBehaviour {
 
 		if(spawnCountdown <= 0) {
 			spawnCountdown = spawnDelay;
+			waveCounter++;
 
 			PlayerController player = GameController.Instance.player;
 			if (player != null) {
@@ -51,5 +53,6 @@ public class Spawner : MonoBehaviour {
 
 		// update UI
 		GameController.Instance.waveFillImage.fillAmount = (spawnCountdown / spawnDelay);
+		GameController.Instance.waveCounterText.text = waveCounter.ToString();
 	}
 }

@@ -47,14 +47,19 @@ public class Spawner : MonoBehaviour {
 				// every 3 waves one more bulldozer spawns
 				for (int i = 0; i < 4 + waveCounter / 3; i++) {
 					Transform spawnpoint = spawnpoints[i % spawnpoints.Length];
-					GameObject spawned = Instantiate(enemy, spawnpoint.position, Quaternion.identity);
-					spawned.transform.SetParent(spawnpoint);
+					StartCoroutine(SpawnEnemy(spawnpoint, i / spawnpoints.Length));
 				}
-			} 
+			}
 		}
 
 		// update UI
 		GameController.Instance.waveFillImage.fillAmount = (spawnCountdown / spawnDelay);
 		GameController.Instance.waveCounterText.text = waveCounter.ToString();
+	}
+
+	private IEnumerator SpawnEnemy(Transform spawnpoint, int offset) {
+		yield return new WaitForSeconds(offset);
+		GameObject spawned = Instantiate(enemy, spawnpoint.position, Quaternion.identity);
+		spawned.transform.SetParent(spawnpoint);
 	}
 }

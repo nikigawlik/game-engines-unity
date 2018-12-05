@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour {
 	public float gameStartDelay = 5;
 	public float spawnDelay = 10;
 
-	private float waveCounter = 0;
+	private int waveCounter = 0;
 	private float spawnCountdown;
 
 	[EasyButtons.Button]
@@ -44,9 +44,11 @@ public class Spawner : MonoBehaviour {
 
 			PlayerController player = GameController.Instance.player;
 			if (player != null) {
-				foreach(Transform t in spawnpoints) {
-					GameObject spawned = Instantiate(enemy, t.position, Quaternion.identity);
-					spawned.transform.SetParent(t);
+				// every 3 waves one more bulldozer spawns
+				for (int i = 0; i < 4 + waveCounter / 3; i++) {
+					Transform spawnpoint = spawnpoints[i % spawnpoints.Length];
+					GameObject spawned = Instantiate(enemy, spawnpoint.position, Quaternion.identity);
+					spawned.transform.SetParent(spawnpoint);
 				}
 			} 
 		}

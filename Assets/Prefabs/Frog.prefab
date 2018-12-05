@@ -24,9 +24,10 @@ GameObject:
   - component: {fileID: 50069878774358386}
   - component: {fileID: 58298049703842252}
   - component: {fileID: 114769102344283994}
+  - component: {fileID: 114215440789933228}
   m_Layer: 0
   m_Name: Frog
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,6 +98,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114215440789933228
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1488289687006874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20027f8a2717e46dbafd83e6365c00a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max: 5
+  invincibleDuration: 2
 --- !u!114 &114769102344283994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,6 +126,9 @@ MonoBehaviour:
   speedModifier: 1
   bulletSpeed: 9
   bulletDelay: 0.3
+  bulletSpawnOffset: 0.1
+  bulletSpread: 0.1
+  knockback: 1
   bulletPool: {fileID: 0}
 --- !u!212 &212664567529194450
 SpriteRenderer:

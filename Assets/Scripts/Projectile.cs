@@ -26,6 +26,9 @@ public class Projectile : MonoBehaviour {
 			return;
 		}
 		// hit something
+		// // push other
+		// Rigidbody2D rb2 = other.GetComponent<Rigidbody2D>();
+		// if(rb2) rb2.velocity += rb.velocity;
 		rb.velocity = Vector2.zero;
 
 		if(anim == null) {

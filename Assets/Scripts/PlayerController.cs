@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField] private float bulletSpeed = 7f;
 	[SerializeField] private float bulletDelay = .3f;
 	[SerializeField] private float bulletSpawnOffset = .1f;
+	[SerializeField] private float bulletSpread = .1f;
+	[SerializeField] private float knockback = 1f;
 	[SerializeField] private ObjectPool bulletPool;
 
 	private Animator animator;
@@ -52,11 +54,17 @@ public class PlayerController : MonoBehaviour {
 		if(Input.GetButton("Fire1") && bulletCountdown == 0f) {
 			GameObject bullet = bulletPool.GetObject();
 			bullet.tag = "Player";
-            Quaternion bulletDirection = Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2(shootDirection.y, shootDirection.x));
+            Quaternion bulletDirection = Quaternion.Euler(0, 0, (
+				Mathf.Rad2Deg * Mathf.Atan2(shootDirection.y, shootDirection.x)
+				+ Random.Range(-bulletSpread, bulletSpread))
+			);
 			bullet.transform.position = transform.position + bulletDirection * (new Vector3(bulletSpawnOffset, 0, 0));
             bullet.transform.rotation = bulletDirection;
-			bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * bulletSpeed;
+			bullet.GetComponent<Rigidbody2D>().velocity = bulletDirection * Vector3.right * bulletSpeed;
 			bullet.GetComponent<Projectile>().shooter = this.gameObject;
+
+			// knockback
+			rigidbody2d.velocity += -shootDirection * bulletSpeed * knockback;
 
 			bulletCountdown = bulletDelay;
 			animator.SetTrigger("fire");

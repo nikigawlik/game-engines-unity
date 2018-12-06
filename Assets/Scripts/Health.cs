@@ -5,6 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour {
 	public int max = 5;
 	private bool isInvincible = false;
+	[SerializeField] private int startHealth = 0;
 	[SerializeField] private float invincibleDuration = 0;
 	private bool isPlayer;
 	private int current;
@@ -20,7 +21,7 @@ public class Health : MonoBehaviour {
 	}
 
 	void Start () {
-		current = max;
+		current = startHealth > 0 ? startHealth : max;
 		sprite = gameObject.GetComponent<SpriteRenderer>();
 		isPlayer = gameObject.GetComponent<PlayerController>() != null;
 	}

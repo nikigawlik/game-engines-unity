@@ -15,6 +15,9 @@ public class HealthHUD : MonoBehaviour {
 		for (int i = 0; i < hearts.Length; i++) {
 			GameObject created = Instantiate(heart);
 			created.transform.SetParent(gameObject.transform);
+			if (i + 1 > health.Current) {
+				created.SetActive(false);
+			}
 			hearts[i] = created;
 		}
 	}

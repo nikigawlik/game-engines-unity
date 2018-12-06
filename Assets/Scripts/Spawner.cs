@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour {
 	public Transform[] spawnpoints;
 	public GameObject enemy;
 	public GameObject tree;
+	public GameObject[] items;
 	public float gameStartDelay = 5;
 	public float spawnDelay = 10;
 
@@ -81,6 +82,27 @@ public class Spawner : MonoBehaviour {
 		Vector2 position = possiblePositions[Random.Range(0, possiblePositions.Count)];
 		GameObject spawned = Instantiate(tree, position, Quaternion.identity);
 		spawned.transform.SetParent(gameObject.transform);
+		StartCoroutine(DropItem(spawned, (int)spawnDelay * 5));
+	}
+
+	private IEnumerator DropItem(GameObject obj, int offset) {
+		yield return new WaitForSeconds(offset);
+		if (obj != null) {
+			List<Vector2> positions = new List<Vector2>();
+			for (int x = -1; x <= 1; x++) {
+				for (int y = -1; y <= 1; y++) {
+					Vector2 position = (Vector2)obj.transform.position + new Vector2(x, y);
+					Collider2D occupied = Physics2D.OverlapPoint(position);
+					if (!occupied) {
+						positions.Add(position);
+					}
+				}
+			}
+			Vector2 itemPosition = positions[Random.Range(0, positions.Count)];
+			GameObject item = items[Random.Range(0, items.Length)];
+			GameObject spawned = Instantiate(item, itemPosition, Quaternion.identity);
+			spawned.transform.SetParent(gameObject.transform);
+		}
 	}
 
 	private IEnumerator SpawnEnemy(Transform spawnpoint, int offset) {

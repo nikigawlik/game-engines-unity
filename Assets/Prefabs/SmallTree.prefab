@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212916752704734968}
   - component: {fileID: 58561665623191816}
   - component: {fileID: 114311441107173478}
+  - component: {fileID: 114596806900017928}
   m_Layer: 9
   m_Name: SmallTree
   m_TagString: Player
@@ -36,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1954073362718068}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.9484658, y: 0.5280173, z: -0.06997572}
+  m_LocalPosition: {x: 3.1, y: 0.5280173, z: -0.06997572}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -69,7 +70,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   max: 5
+  startHealth: 0
   invincibleDuration: 1
+--- !u!114 &114596806900017928
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1954073362718068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52d0141087dbe664fad3e9fa78d9d53f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: c48320b9ffd7327448eba8ad5143c9ae, type: 3}
+  - {fileID: 21300002, guid: c48320b9ffd7327448eba8ad5143c9ae, type: 3}
+  - {fileID: 21300004, guid: c48320b9ffd7327448eba8ad5143c9ae, type: 3}
 --- !u!212 &212916752704734968
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -110,7 +127,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

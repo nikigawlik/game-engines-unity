@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   max: 5
+  startHealth: 3
   invincibleDuration: 2
 --- !u!114 &114769102344283994
 MonoBehaviour:
@@ -125,10 +126,10 @@ MonoBehaviour:
   speed: 4
   speedModifier: 1
   bulletSpeed: 9
-  bulletDelay: 0.3
-  bulletSpawnOffset: 0.1
-  bulletSpread: 0.1
-  knockback: 1
+  bulletDelay: 0.5
+  bulletSpawnOffset: 0.3
+  bulletSpread: 0
+  knockback: 0
   bulletPool: {fileID: 0}
 --- !u!212 &212664567529194450
 SpriteRenderer:

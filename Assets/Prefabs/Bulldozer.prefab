@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20027f8a2717e46dbafd83e6365c00a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max: 15
+  max: 2
   invincibleDuration: 0
 --- !u!114 &114386399469285038
 MonoBehaviour:
@@ -138,7 +138,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   avoidDistance: 1
-  directionChangeThreshold: 0.1
   layersToAvoid:
   - Walls
 --- !u!212 &212822748351808100

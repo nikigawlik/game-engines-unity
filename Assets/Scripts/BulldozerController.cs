@@ -9,7 +9,6 @@ public class BulldozerController : MonoBehaviour {
 	
 	[Header("Obstacle avoidance")]
 	public float avoidDistance = 1f;
-	public float directionChangeThreshold = 0.1f;
 	public string[] layersToAvoid;
 
 	private int avoidLayerMask;

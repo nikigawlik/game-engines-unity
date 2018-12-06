@@ -72,6 +72,25 @@ public class PlayerController : MonoBehaviour {
 		bulletCountdown = Mathf.Max(bulletCountdown - Time.fixedDeltaTime, 0f);
 	}
 
+	private void OnTriggerEnter2D(Collider2D other) {
+		Item item = other.GetComponent<Item>();
+		if (item) {
+			switch (item.type) {
+				case ItemType.ExtraLife:
+					Health health = gameObject.GetComponent<Health>();
+					if (health.Current < health.max) {
+						health.Heal(1);
+						Destroy(other.gameObject);
+					}
+					break;
+				default:
+					Debug.Log("Unknown Item.");
+					break;
+			}
+			Debug.Log(item.type);
+		}
+	}
+
 	private void OnTriggerStay2D(Collider2D other) {
 		Swamp swamp = other.GetComponent<Swamp>();
 		if(swamp != null) {

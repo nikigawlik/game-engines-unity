@@ -4,7 +4,9 @@ using UnityEngine;
 
 public enum ItemType {
 	ExtraLife,
-	Mine
+	Mine,
+	Juice,
+	Coffee,
 }
 
 public class Item : MonoBehaviour {

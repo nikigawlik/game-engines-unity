@@ -85,7 +85,6 @@ public class PlayerController : MonoBehaviour {
 					break;
 				default:
 					Debug.Log("Unknown Item.");
-					Destroy(other.gameObject);
 					break;
 			}
 			Debug.Log(item.type);

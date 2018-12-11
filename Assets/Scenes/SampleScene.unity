@@ -651,10 +651,7 @@ MonoBehaviour:
   enemy: {fileID: 1906166641465564, guid: 5019c6a068d2f814488776444bee89c8, type: 2}
   tree: {fileID: 1954073362718068, guid: f8b43a883e6991440a4bacf7fdda100e, type: 2}
   items:
-  - {fileID: 1657505611076942, guid: bf921ab1da2551144b155b4bf58c1deb, type: 2}
   - {fileID: 1657505611076942, guid: d9b52b1a955d04cb8b5786b3ec84dd59, type: 2}
-  - {fileID: 1657505611076942, guid: 3e287c79136fbe549b19edd579ec8cf2, type: 2}
-  - {fileID: 1657505611076942, guid: 1f7cfcccc9fbb9c428520c2b530715ad, type: 2}
   gameStartDelay: 5
   spawnDelay: 10
 --- !u!1 &466479295

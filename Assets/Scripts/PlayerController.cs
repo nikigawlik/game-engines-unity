@@ -103,6 +103,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private void OnValidate() {
+#if UNITY_EDITOR
 		Debug.Assert(UnityEditor.PrefabUtility.GetPrefabType(gameObject) != UnityEditor.PrefabType.PrefabInstance || bulletPool != null, this.gameObject);
+#endif
 	}
 }

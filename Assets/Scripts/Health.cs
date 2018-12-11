@@ -5,8 +5,8 @@ using UnityEngine;
 public class Health : MonoBehaviour {
 	public int max = 5;
 	private bool isInvincible = false;
-	[SerializeField] private int startHealth = 0;
-	[SerializeField] private float invincibleDuration = 0;
+	public int startHealth = 0;
+	public float invincibleDuration = 0;
 	private bool isPlayer;
 	private int current;
 	private SpriteRenderer sprite;

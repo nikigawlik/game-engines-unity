@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 	[Header("Moving")]
-	[SerializeField] private float speed = 2f;
-	[SerializeField] private float speedModifier = 1f;
+	public float speed = 2f;
+	public float speedModifier = 1f;
 	[Header("Shooting")]
-	[SerializeField] private float bulletSpeed = 7f;
-	[SerializeField] private float bulletDelay = .3f;
-	[SerializeField] private float bulletSpawnOffset = .1f;
-	[SerializeField] private float bulletSpread = .1f;
-	[SerializeField] private float knockback = 1f;
-	[SerializeField] private ObjectPool bulletPool;
+	public float bulletSpeed = 7f;
+	public float bulletDelay = .3f;
+	public float bulletSpawnOffset = .1f;
+	public float bulletSpread = .1f;
+	public float knockback = 1f;
+	public ObjectPool bulletPool;
 
 	private Animator animator;
 	private Rigidbody2D rigidbody2d;

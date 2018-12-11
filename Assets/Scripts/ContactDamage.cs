@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ContactDamage : MonoBehaviour {
-	[SerializeField] private int damage = 1;
+	public int damage = 1;
 	public bool damageOnce = false;
 
 	private bool hasDamaged = false;

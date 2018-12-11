@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulldozerController : MonoBehaviour {
-	[SerializeField] private float speed;
+	public float speed;
 	private Rigidbody2D rb;
 	private Animator anim;
 	
